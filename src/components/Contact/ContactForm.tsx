@@ -26,8 +26,7 @@ const ContactForm = () => {
 
     // Google event triger analysis
     sendGAEvent("event", "contact_form_submit", {
-      name: data.name,
-      email: data.email,
+      form_type: "contact",
       subject: data.subject,
     });
 
