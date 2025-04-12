@@ -9,10 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface TampaPageProps {
-  searchParams: {
-    category?: string;
-    page?: string;
-  };
+  searchParams: URLSearchParams;
 }
 
 const formatDate = (isoDate: string) => {
@@ -26,9 +23,10 @@ const formatDate = (isoDate: string) => {
 };
 
 const TampaPage = async ({ searchParams }: TampaPageProps) => {
-  const category = searchParams.category || "";
-  const page = parseInt(searchParams.page || "1", 10);
-  const limit = 16;
+  // Safely extract parameters from URLSearchParams
+  const category = searchParams.get("category") || "";
+  const page = parseInt(searchParams.get("page") || "1", 10); // Ensure default to page 1
+  const limit = 16; // Fixed limit for now
 
   const { data: news, meta } = await getAllNews({ category, page, limit });
 
