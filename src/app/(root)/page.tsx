@@ -1,8 +1,10 @@
-import "./globals.css";
-import { TChildren } from "@/lib/types/types";
-import { poppins } from "./fonts";
+import BrekingNews from "@/components/Home/BrekingNews";
+import FeaturedStories from "@/components/Home/FeaturedStories";
+import LetestStories from "@/components/Home/LetestStories";
+import Promotion from "@/components/Home/Promotion";
 import { Metadata } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
+
+const image = "https://tampabuzz360.com/images/features/thumbnails.png";
 
 export const metadata: Metadata = {
   title:
@@ -20,29 +22,27 @@ export const metadata: Metadata = {
     description:
       "TampaBuzz360 delivers real-time news, Tampa politics, business, weather, sports, traffic, and community updates — your go-to local news source.",
     siteName: "Tampabuzz360",
-    images: [
-      { url: "https://tampabuzz360.com/images/features/thumbnails.png" },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@tampabuzz360",
-    creator: "@tanjim360",
-    images: "https://tampabuzz360.com/images/features/thumbnails.png",
+    images: [{ url: image }],
   },
   robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    site: "@site",
+    creator: "@creator",
+    images: image,
+  },
   applicationName: "Tampabuzz360",
-  facebook: { appId: "1615679795750113" },
-  authors: [{ name: "Syed Tajim Hossain", url: "https://nextjs.org" }],
 };
 
-const RootLayout = ({ children }: TChildren) => {
+const HomePage = () => {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={poppins.className}>{children}</body>
-      <GoogleAnalytics gaId="G-MQQY0DBTWS" />
-    </html>
+    <>
+      <BrekingNews />
+      <FeaturedStories />
+      <Promotion />
+      <LetestStories />
+    </>
   );
 };
 
-export default RootLayout;
+export default HomePage;
