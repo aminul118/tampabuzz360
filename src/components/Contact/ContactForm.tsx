@@ -1,11 +1,10 @@
 "use client";
-
 import { Label } from "@radix-ui/react-label";
 import { Input } from "../ui/input";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Button } from "../ui/button";
 import { Send } from "lucide-react";
-import googleAnalyticsTrackEvent from "@/lib/analytics/googleAnalyticsTrackEvent";
+import { sendGAEvent } from "@next/third-parties/google";
+import { Button } from "../ui/button";
 
 type Inputs = {
   name: string;
@@ -25,11 +24,11 @@ const ContactForm = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log("Form Submitted:", data);
 
-    // ✅ Track event in GA
-    googleAnalyticsTrackEvent({
-      action: "form_submit",
-      category: "contact",
-      label: "contact_form",
+    // Google event triger analysis
+    sendGAEvent("event", "contact_form_submit", {
+      name: data.name,
+      email: data.email,
+      subject: data.subject,
     });
 
     // Clear form (optional)

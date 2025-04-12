@@ -39,8 +39,8 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: TChildren) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={poppins.className}>{children}</body>
       <GoogleAnalytics gaId="G-MQQY0DBTWS" />
+      <body className={poppins.className}>{children}</body>
     </html>
   );
 };
