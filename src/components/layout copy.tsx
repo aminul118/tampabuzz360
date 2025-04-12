@@ -1,6 +1,6 @@
 import "./globals.css";
 import ThemeProvider from "@/providers/ThemeProvider";
-import { poppins } from "./fonts";
+import { poppins } from "../app/fonts";
 import { TChildren } from "@/lib/types/types";
 
 const RootLayout = ({ children }: TChildren) => {
