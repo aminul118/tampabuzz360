@@ -10,7 +10,7 @@ interface IMenu {
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const baseUrl = "https://tampabuzz360.com";
-  const today = new Date().toISOString();
+  const today = new Date();
 
   const getAllMongodbId = await getAllIds();
   const mongoIds = getAllMongodbId.data;
