@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: TChildren) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <GoogleTagManager gtmId="	GTM-TSQN82XW" />
+      <GoogleTagManager gtmId="GTM-TSQN82XW" />
       <body className={poppins.className}>{children}</body>
     </html>
   );
