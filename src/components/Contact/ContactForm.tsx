@@ -3,8 +3,9 @@ import { Label } from "@radix-ui/react-label";
 import { Input } from "../ui/input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Send } from "lucide-react";
-import { sendGAEvent } from "@next/third-parties/google";
+
 import { Button } from "../ui/button";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 type Inputs = {
   name: string;
@@ -24,10 +25,13 @@ const ContactForm = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log("Form Submitted:", data);
 
-    // Google event triger analysis
-    sendGAEvent("event", "contact_form_submit", {
-      form_type: "contact",
-      subject: data.subject,
+    // Data Analysis through Goggle Tag Manager
+    sendGTMEvent({
+      event: "contact_form_submit",
+      value: {
+        form_type: "contact",
+        subject: data.subject,
+      },
     });
 
     // Clear form (optional)
