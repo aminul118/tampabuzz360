@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Send } from "lucide-react";
 
 import { Button } from "../ui/button";
-import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGAEvent } from "@next/third-parties/google";
 
 type Inputs = {
   name: string;
@@ -26,8 +26,7 @@ const ContactForm = () => {
     console.log("Form Submitted:", data);
 
     // Data Analysis through Goggle Tag Manager
-    sendGTMEvent({
-      event: "contact_form_submit",
+    sendGAEvent("eveent", "contact_form_submit", {
       value: {
         form_type: "contact",
         subject: data.subject,

@@ -2,7 +2,7 @@ import "./globals.css";
 import { TChildren } from "@/lib/types/types";
 import { poppins } from "./fonts";
 import { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title:
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: TChildren) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <GoogleTagManager gtmId="GTM-M7MSGH9C" />
+      <GoogleAnalytics gaId="G-4Y4ND54NP4" />
       <body className={poppins.className}>{children}</body>
     </html>
   );
