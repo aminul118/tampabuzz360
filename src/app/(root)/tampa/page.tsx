@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Promotion from "@/components/Home/Promotion";
 import CategoryButtons from "@/components/TampaToday/CategoryButton";
 import NoNewsFound from "@/components/TampaToday/NoNewsFound";
 import { PaginationComponent } from "@/components/TampaToday/Pagination";
@@ -35,6 +36,7 @@ const TampaPage = async ({ searchParams }: TampaPageProps) => {
 
   return (
     <Container className="flex flex-col">
+      <Promotion/>
       <CategoryButtons />
 
       {news.length === 0 ? (

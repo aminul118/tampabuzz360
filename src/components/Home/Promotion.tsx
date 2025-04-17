@@ -1,15 +1,15 @@
-import Image from "next/image";
 import Container from "../ui/Container";
+import getAllPromotions from "@/lib/data/getAllPromotions";
+import PromotionSlider from "./PromotionSlider";
 
-const Promotion = () => {
+const Promotion = async () => {
+  // Fetch only the homePage promotions from server
+  const homePagePromos = await getAllPromotions("homePage");
+
   return (
     <Container>
-      <Image
-        src="/images/cover.webp"
-        alt="demo promotional image of Tampabuzz360"
-        width={1920}
-        height={200}
-      />
+      {/* Pass serializable data only */}
+      <PromotionSlider promotions={homePagePromos} />
     </Container>
   );
 };
