@@ -6,7 +6,7 @@ const Team = () => {
   return (
     <div>
       <Title title="Our Team Members" />
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 px-4">
+      <div className="grid mt-8 gap-20 md:grid-cols-2 lg:grid-cols-3 px-4">
         {teamMembers.map(({ _id, name, designation, short_about, photo }) => (
           <div key={_id} data-aos="fade-up">
             <div className="shadow-lg rounded-xl p-3 md:py-6 lg:p-6 relative flex flex-col h-full mt-6 bg-[#1F5781]">
